@@ -14,6 +14,7 @@ const tableLabel = ref({
   totalBuy: "总购买",
 });
 
+//axios请求api
 // axios
 //   .get({
 //     url: "/api/home/getTableData",
@@ -28,6 +29,7 @@ const tableLabel = ref({
 // });
 // axios 的二次封装
 const getTableData = async () => {
+  // $api在main.js中注册过
   const data = await proxy.$api.getTableData();
   // console.log(data);
   // 可以打印;

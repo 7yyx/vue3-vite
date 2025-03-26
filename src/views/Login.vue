@@ -55,14 +55,14 @@ const handleLogin = async () => {
   background-image: url("../assets/images/background.png");
   /* background-size: 100%; */
   overflow: hidden;
-}
+} 
 .login-container {
   width: 350px;
   background-color: #eaeaea;
   border: 1px solid #eaeaea;
   border-radius: 15px;
   padding: 35px 35px 15px 35px;
-  box-shadow: 0 0 25px #cacaca;
+  box-shadow: 0 0 25px #cacaca; 
   margin: 180px auto;
 }
 h3 {

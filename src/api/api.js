@@ -1,5 +1,5 @@
 import request from "./request"
-
+// api的统一管理
 export default {
   // home组件 左侧表格数据获取
   getTableData() {

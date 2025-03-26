@@ -51,7 +51,7 @@ const hasChildren = computed(() => list.value.filter((item) => item.children));
 // pinia
 const store = useAllDataStore();
 const isCollapse = computed(() => store.state.isCollapse);
-const width = computed(() => (store.state.isCollapse ? "74px" : "180px"));
+const width = computed(() => (store.state.isCollapse ? "74px" : "230px"));
 // tags组件的 编写
 const router = useRouter();
 const route = useRoute();
@@ -72,7 +72,7 @@ const activeMenu = computed(() => {
       :collapse-transition="false"
       :default-active="activeMenu"
     >
-      <h3 v-show="!isCollapse">通用后台管理系统</h3>
+      <h3 v-show="!isCollapse">伪装目标检测后台管理系统</h3>
       <h3 v-show="isCollapse">后台</h3>
       <el-menu-item
         v-for="item in noChildren"
@@ -83,10 +83,12 @@ const activeMenu = computed(() => {
         <component class="icons" :is="item.icon"></component>
         <span>{{ item.label }}</span>
       </el-menu-item>
+
       <el-sub-menu
         v-for="item in hasChildren"
         :key="item.path"
         :index="item.path"
+        @click="handleMenu(item)"
       >
         <template #title>
           <component class="icons" :is="item.icon"></component>
@@ -119,7 +121,7 @@ const activeMenu = computed(() => {
 }
 h3 {
   padding: 20px 5px;
-  font-size: 20px;
+  font-size: 18px;
   font-weight: bold;
 }
 .el-menu {

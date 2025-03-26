@@ -1,6 +1,7 @@
 import axios from 'axios'
 import { ElMessage } from 'element-plus'
 import config from '@/config';
+// 对于axios请求之前和之后的公共部分进行封装 处理
 const service = axios.create(
   { baseURL: config.baseApi, }
 );
@@ -17,11 +18,8 @@ service.interceptors.request.use(
 
 // 添加响应拦截器
 service.interceptors.response.use((res) => {
-
-
   // #ok 能打印出数据
   const { code, data, msg } = res.data
-
   if (code === 200) {
     return data
   } else {
@@ -32,8 +30,9 @@ service.interceptors.response.use((res) => {
 });
 
 function request(options) {
+  // options.method 如果有复制给options.method 没有则给get
   options.method = options.method || "get";
-  //
+  // 
   if (options.method.toLowerCase() === "get") {
     options.params = options.data;
   }

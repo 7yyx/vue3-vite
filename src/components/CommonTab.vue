@@ -1,5 +1,6 @@
 <script setup>
 import { computed, ref } from "vue";
+
 import { useRouter } from "vue-router";
 import { useAllDataStore } from "@/stores";
 const store = useAllDataStore();
@@ -21,8 +22,8 @@ const route = useRouter();
   <div class="tabs">
     <el-tag
       class="tags"
-      v-for="(tag, index) in tags"
-      :key="index"
+      v-for="tag in tags"
+      :key="tag.name"
       :closable="tag.name !== 'home'"
       :effect="route.name === tag.name ? 'dark' : 'plain'"
     >

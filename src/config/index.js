@@ -1,6 +1,7 @@
 const env = import.meta.env.MODE || 'prod'
 
 const EnvConfig = {
+  // 开发环境
   development: {
     baseApi: '/api',
     mockApi: 'https://mock.apifox.cn/m1/4068509-0-default/api',
@@ -18,6 +19,9 @@ const EnvConfig = {
 
 export default {
   env,
+  // 控制mock ,false 所有请求线上的mock请求，本地五拦截，请求到的就是真实的数据
+
   mock: false,
+
   ...EnvConfig[env]
 }
