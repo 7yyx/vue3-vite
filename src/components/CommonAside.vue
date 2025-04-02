@@ -50,6 +50,8 @@ const noChildren = computed(() => list.value.filter((item) => !item.children));
 const hasChildren = computed(() => list.value.filter((item) => item.children));
 // pinia
 const store = useAllDataStore();
+// computed 属性是响应式的，当依赖的数据变化时，会触发组件的重新渲染。
+// 普通函数是非响应式的，不会自动更新依赖它的组件。
 const isCollapse = computed(() => store.state.isCollapse);
 const width = computed(() => (store.state.isCollapse ? "74px" : "230px"));
 // tags组件的 编写
@@ -57,11 +59,10 @@ const router = useRouter();
 const route = useRoute();
 const list = computed(() => store.state.menuList);
 const handleMenu = (item) => {
-  router.push(item.path);
+  router.push(item.path); //实现路由跳转
+  store.selectMenu(item); //实现tag标签的
 };
-const activeMenu = computed(() => {
-  route.path;
-});
+const activeMenu = computed(() => route.path);
 </script>
 
 <template>

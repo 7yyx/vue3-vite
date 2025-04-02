@@ -20,7 +20,7 @@ export default {
             {
               path: '/mall',
               name: 'mall',
-              label: '商品管理',
+              label: '酒店管理',
               icon: 'video-play',
               url: 'Mall'
             },

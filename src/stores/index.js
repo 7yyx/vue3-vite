@@ -20,15 +20,22 @@ function initState() {
   }
 }
 
+// ref相当于state属性
+// computed相当于getters
+// function-->actions
 export const useAllDataStore = defineStore('allData', () => {
   const state = ref(initState());
   function selectMenu(val) {
     if (val.name === "home") {
       state.value.currentMenu = null;
     } else {
-      let index = state.value.tags.findIndex(item => { item.name === val.name })
+      let index = state.value.tags.findIndex(item => item.name === val.name)
       index === -1 ? state.value.tags.push(val) : "";
     }
+  };
+  function updateTags(tag) {
+    let index = state.value.tags.findIndex((item) => item.name === tag.name)
+    state.value.tags.splice(index, 1)
   }
   function updateMenuList(val) {
     state.value.menuList = val
@@ -36,6 +43,7 @@ export const useAllDataStore = defineStore('allData', () => {
   return {
     state,
     updateMenuList,
+    updateTags,
     selectMenu
   }
 })

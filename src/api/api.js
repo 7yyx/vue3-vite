@@ -37,6 +37,7 @@ export default {
       data
     })
   },
+
   // 删除用户
   deleteUser(data) {
     return request({
@@ -67,6 +68,30 @@ export default {
       url: '/permission/getMenu',
       method: 'post',
       data: params
+    })
+  },
+  // 获取房间信息
+  getMallData(data) {
+    return request({
+      url: '/home/getMallData',
+      method: 'get',
+      data
+    })
+  },
+  deleteMallUser(data) {
+    return request({
+      url: '/mall/deleteMallUser',
+      method: 'get',
+      // mock: false,
+      data
+    })
+  },
+  // 添加用户
+  addMallUser(data) {
+    return request({
+      url: '/user/addMallUser',
+      method: 'post',
+      data
     })
   }
 

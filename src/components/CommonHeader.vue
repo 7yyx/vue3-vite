@@ -7,6 +7,7 @@ const getImageUrl = (user) => {
 //pinia
 const store = useAllDataStore();
 const handleCollapsse = () => {
+  // 点击之后 取反操作
   store.state.isCollapse = !store.state.isCollapse;
 };
 </script>

@@ -6,6 +6,8 @@ const getUserData = async () => {
   let data = await proxy.$api.getUserData(config);
   // 获取数据，对性别进行处理
   // tableData.value = data.list;
+  // console.log(data);
+
   tableData.value = data.list.map((item) => ({
     ...item,
     sexLabel: item.sex === 1 ? "男" : "女",
@@ -14,6 +16,8 @@ const getUserData = async () => {
 };
 
 const tableData = ref([]);
+// console.log(tableData.value);
+
 const tableLabel = reactive([
   { prop: "name", label: "姓名" },
   { prop: "age", label: "年龄" },
